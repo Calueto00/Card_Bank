@@ -7,25 +7,25 @@
     <title>Document</title>
 </head>
 <body class="font-sans">
-    <main class="h-[100vh] w-full flex relative">
+    <main class="h-[100vh] w-[100%] flex relative">
         <div class="bg-[url('images/bg-main-desktop.png')] h-full bg-no-repeat w-[40%]">1</div>
-        <div class=" h-full w-[60%]"></div>
+        <div class="bg-scale-200 h-full w-[60%] "></div>
 
         <div class="bg-transparent absolute top-[20%] right-[10%] z-0 w-[80%] h-[65%] grid grid-cols-2 gap-10">
             <div class="w-full h-full relative space-y-2">
-                <div class="bg-[url('images/bg-card-front.png')] absolute z-0 top-0 left-4
-                 h-[200px] bg-no-repeat bg-center bg-cover w-[400px] rounded-lg">
+                <div class="bg-[url('images/bg-card-front.png')] absolute z-0 top-0 left-16
+                 h-[200px] bg-no-repeat bg-center bg-cover w-[370px] rounded-lg">
                         <div class="w-full h-full flex justify-between flex-col">
                             <div>
                                 <img src="images/card-logo.svg" alt="" class="p-2">
                             </div>
                             <div class="flex items-center justify-center ">
-                                <div class="p-2 space-y-2 text-white font-bold w-full p-4">
-                                    <h1 class="text-lg">0000 0000 0000 0000</h1>
+                                <div class="p-2 space-y-2 text-white  w-full p-4">
+                                    <h1 class="text-lg cardNumber text-center py-4">0000 0000 0000 0000</h1>
                                     <div class="flex items-center justify-between">
                                         <p class="userName"></p>
                                         <div class="flex">
-                                            <p class="month"></p><p>/</p> <div class="year">00</div>
+                                            <p class="month">00</p>/<div class="year">00</div>
                                         </div>
                                     </div>
                                 </div>
@@ -33,32 +33,35 @@
                         </div>
                 </div>
                 <div class="bg-[url('images/bg-card-back.png')] absolute z-0 bottom-0 right-2
-                h-[200px] bg-no-repeat bg-center bg-cover w-[400px] rounded-lg"></div>
+                h-[200px] bg-no-repeat bg-center bg-cover w-[400px] rounded-lg flex items-center justify-center text-end">
+                    <p class="text-sm text-white w-[80%] Cv">000</p>
+                </div>
             </div>
             <div class="w-full flex justify-center items-center text-sm">
-                <form action="" class="w-[70%] space-y-6">
+                <form class="w-[70%] space-y-6" onsubmit="formValidation()">
                    <div>
-                    <label for="textName"> CARDHOLDER NAME </label>
-                    <input type="text" id="textUser" placeholder="Digite your name" class="w-full border border-grey-200 rounded-lg py-2">
+                    <label for="textUser"> CARDHOLDER NAME </label>
+                    <input type="text" id="textUser"  onclick="NameCard()" placeholder="Digite your name" class="w-full shadow-md border border-grey-200 rounded-lg py-2">
+                    <p class="text-red-200 text-xs" id="errorName"></p>
                    </div>
                    <div>
                         <label for="name">CARD NUMBER</label>
-                        <input type="text" id="number" placeholder="Digite your name" class="w-full border border-grey-200 rounded-lg py-2">
+                        <input type="text" id="textnumber" onclick="NumberCard()" placeholder="Digite your name" class="w-full shadow-md border border-grey-200 rounded-lg py-2">
                    </div>
                    <div class="grid grid-cols-2 w-full align-center gap-2 text-sm">
                         <div class="w-full ">
                             <label for="date">EXP DATE (MM/YY)</label>
                             <div class="grid grid-cols-2 gap-2">
-                                <input type="text" placeholder="MM" id="textMontn" class="border w-full py-2 rounded-lg">
-                                <input type="text" placeholder="YY" id="textyear"  class="border w-full py-2 rounded-lg">
+                                <input type="text" placeholder="MM" onclick="monthValid()" id="textMonth" class="border w-full shadow-md  py-2 rounded-lg">
+                                <input type="text" placeholder="YY" onclick="yearValid()" id="textyear"  class="border w-full shadow-md  py-2 rounded-lg">
                             </div>
                         </div>
                         <div class="w-full">
                             <label for="cv">CV</label>
-                            <input type="text" placeholder="CV" id="cv"  class="border w-full py-2 rounded-lg">
+                            <input type="text" onclick="Cvalidation()" placeholder="CV" id="textCv"  class="border shadow-md w-full py-2 rounded-lg">
                         </div>
                    </div>
-                   <button class="bg-fuchsia-950 w-full text-white py-3 rounded-lg mt-4">
+                    <button type="submit" class="bg-fuchsia-950 w-full text-white py-3 rounded-lg mt-4">
                         Confirm
                    </button>
                 </form>
